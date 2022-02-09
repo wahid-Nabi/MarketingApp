@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Vroom.Models.BikeModel>
+@{
+    ViewData["Title"] = "Bikes";
+}
+<div class="container-fluid">
+    <h1>@ViewData["Title"]</h1>
+    <p class="align-self-auto">Dictionaries and Maps. Anyone failing Test case #1 (in C++ at least), 
+    be aware N is not the maximum amount of queries that can be made. It could give you 5 definitions but send you 10</p>
+    <div class="row">
+        <div class="col-9">
+        <table class="table">
+            <tr class="text-center">
+                <td>S.NO</td>
+                <td>Name</td>
+                <td>Model</td>
+                <td><span class="text-danger">@TempData["Message"]</span></td>
+                
+                    
+            </tr>
+
+            
+            @{ 
+
+                int i =1;
+                
+
+                foreach (var item in Model)
+                {
+                        <tr class="text-center">
+                            <td> @i</td>
+                            <td>@item.Name</td>
+                            <td>@item.ModelName</td>
+                            <td>
+                                <a style="display:inline-block; text-decoration:none;padding:0.4rem" class="text-white bg-success" asp-controller="BikesList" asp-action="Delete" asp-route-Id="@item.BikeModelId"  > <i class="fas fa-trash-alt text-danger"></i></a>
+                            </td>
+                            <td>
+                                <a style="display:inline-block; text-decoration:none;" class="text-white bg-primary" asp-controller="BikesList" asp-action="Add_Update" asp-route-Id="@item.BikeModelId"><i class="fas fa-user-edit"></i>Edit</a>
+                            </td>
+                        </tr>
+                         i++;
+                }
+
+             }
+
+
+
+
+        </table>
+         </div>
+        <div class="col-3">
+            
+
+                <a style="margin-top: 0.3rem; display: inline-block; " asp-controller="BikesList" asp-action="AddBikes" class="btn-primary p-2 text-decoration-none font-weight-bold"><i class="fas fa-user-plus"></i>Add More</a>
+           
+        </div>
+    </div>
+</div>

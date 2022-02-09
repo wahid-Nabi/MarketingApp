@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "AddUpdate";
+}
+@model BikeModel
+<div class="row">
+    <div class="col-md-6">
+        <h2>This is add</h2>
+        <form  method="post">
+            <table class="table">
+                <tr class="form-group">
+                   @*<td> <label>Enter the BikeNumber</label> </td>*@
+                    <td><input type="hidden" asp-for="BikeModelId" class="form-control" /></td>
+                    
+                </tr>
+               
+                <tr class="form-group">
+                    <td><label asp-for="@Model.Name"></label></td>
+                    <td><input class="form-control" asp-for="@Model.Name" /></td>                  
+                    
+                </tr>
+                <tr class="form-group">
+                    <td><label asp-for="@Model.ModelName"></label></td>
+                    <td><input class="form-control" asp-for="@Model.ModelName" /></td>
+                </tr>
+                <tr class="form-group">
+                    <td><label asp-for="@Model.Description"></label></td>
+                    <td><textarea class="form-control" asp-for="@Model.Description"></textarea></td>
+                </tr>
+                <tr class="form-group">
+                    <td><button type="submit" class="btn-outline-success"> Save</button></td>
+                </tr>
+            </table>
+            
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h3> this is update</h3>
+    </div>
+</div>
